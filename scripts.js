@@ -105,6 +105,7 @@ if(firstTimeKeyUp===false){
         // console.log(interval);
     
         if(firstTimeKeyUp===false){
+            
             firstTimeKeyUp = true;    
             const startTimer = setInterval(() => {
                 // console.log(startTime);
@@ -112,6 +113,7 @@ if(firstTimeKeyUp===false){
                     let d = new Date();
                     endTime = d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
                     // console.log(endTime);
+                    document.querySelector('.beginner-and-pro-buttons').style.visibility = "visible";
                     isIntervalClear = true;
                     clearInterval(startTimer);
                 }
@@ -119,6 +121,7 @@ if(firstTimeKeyUp===false){
                     let d = new Date();
                     typingStartTime = d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
                     // console.log(typingStartTime);
+                    document.querySelector('.beginner-and-pro-buttons').style.visibility = "hidden";
                     isTypingStart = true;
                 }
         
@@ -187,4 +190,10 @@ const footer = document.querySelector('.footer')
 footer.innerText +=" " +  d.getFullYear();
 
 
-
+// change Theme
+const color = ["#66545e","#aa6f73","#eea990",
+                ,"#0d1137","#077b8a","#3b4d61","#243763","#181D31","#434242","#A555EC","#FF6363"];
+let size = color.length;
+function changeTheme(){
+    document.querySelector('body').style.backgroundColor = color[Math.round(Math.random()*size)];
+}
